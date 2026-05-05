@@ -1,4 +1,4 @@
-name: ci.yml
+name: CI
 
 on:
   pull_request:
@@ -16,6 +16,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+
+      - name: Grant execute permission
+        run: chmod +x ./gradlew
 
       - name: Build
         run: ./gradlew build -x test
