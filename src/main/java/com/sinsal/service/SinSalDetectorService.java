@@ -205,6 +205,13 @@ public class SinSalDetectorService {
         if (hasBaekHoSal(dayStem, branches))                  result.add(dataService.get("baek_ho_sal"));
         if (hasGwaSukSal(yearBranch, branches))               result.add(dataService.get("gwa_suk_sal"));
 
+
+        // 0개일 때 고정신살
+        if (result.isEmpty()) {
+            return List.of(dataService.get("default_sal"));
+        }
+
+        // 6개 제한 로직
         if (result.size() <= 6) {
             return result;
         }

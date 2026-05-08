@@ -106,7 +106,15 @@ public class SinSalDataService {
                 "귀신의 문, 신비롭고 불길한 기운",
                 List.of("신비로운 체험", "악몽이나 환각", "심리적 불안", "영적 감수성 (긍정적 측면)"),
                 List.of("정신 건강을 잘 관리하세요", "신비주의에 지나치게 빠지지 마세요", "명상과 수양을 통해 마음을 다스리세요")
-            ))
+            )),
+
+                // 고정신살
+                Map.entry("default_sal", new SinSalInfo(
+                        "default_sal", "특별한 살", "特別殺", SinSalType.LUCKY,
+                        "TODO: 기획 확정 후 설명 추가",
+                        List.of("TODO: 기획 확정 후 효과 추가"),
+                        List.of("TODO: 기획 확정 후 조언 추가")
+                ))
         );
     }
 
