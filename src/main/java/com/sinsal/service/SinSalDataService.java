@@ -54,7 +54,7 @@ public class SinSalDataService {
                 List.of("부동산이나 안정적인 투자를 고려하세요", "재물 관리를 철저히 하세요")
             )),
             Map.entry("hwa_gae_sal", new SinSalInfo(
-                "hwa_gae_sal", "화개살", "華蓋殺", SinSalType.NEUTRAL,
+                "hwa_gae_sal", "화개살", "華蓋殺", SinSalType.LUCKY,
                 "예술적 재능과 종교적 성향, 고독함의 이중성",
                 List.of("예술·종교·철학 분야 재능", "독창적 사고", "고독하고 외로울 수 있음", "신비로운 일에 관심"),
                 List.of("창작이나 영적 활동에 집중하세요", "고독을 즐기되 고립되지 않도록 주의하세요")
@@ -78,7 +78,7 @@ public class SinSalDataService {
                 List.of("건강 관리를 철저히 하세요", "위험한 활동을 자제하세요", "정기 건강검진을 받으세요")
             )),
             Map.entry("yeok_ma_sal", new SinSalInfo(
-                "yeok_ma_sal", "역마살", "驛馬殺", SinSalType.NEUTRAL,
+                "yeok_ma_sal", "역마살", "驛馬殺", SinSalType.UNLUCKY,
                 "역참의 말, 이동수가 많고 활동적",
                 List.of("이사나 여행이 잦음", "직업 변동이 많음", "활동적이고 역동적", "안정성 부족"),
                 List.of("변화를 긍정적으로 받아들이세요", "해외 진출이나 이동을 활용하세요", "안정이 필요하면 노력이 필요합니다")
