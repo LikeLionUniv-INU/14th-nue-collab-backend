@@ -4,9 +4,11 @@ import com.sinsal.model.EarthlyBranch;
 import com.sinsal.model.HeavenlyStem;
 import com.sinsal.model.SinSalInfo;
 import com.sinsal.model.ThreePillars;
+import com.sinsal.model.SinSalType;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 신살 탐지 서비스 — sin_sal.ts의 findSinSals() 포팅
@@ -203,7 +205,29 @@ public class SinSalDetectorService {
         if (hasBaekHoSal(dayStem, branches))                  result.add(dataService.get("baek_ho_sal"));
         if (hasGwaSukSal(yearBranch, branches))               result.add(dataService.get("gwa_suk_sal"));
 
-        return result;
+        if (result.size() <= 6) {
+            return result;
+        }
+
+        List<SinSalInfo> luckyList = result.stream()
+                .filter(s -> s.getType() == SinSalType.LUCKY)
+                .collect(Collectors.toList());
+        List<SinSalInfo> unluckyList = result.stream()
+                .filter(s -> s.getType() == SinSalType.UNLUCKY)
+                .collect(Collectors.toList());
+
+        Collections.shuffle(luckyList);
+        Collections.shuffle(unluckyList);
+
+        List<SinSalInfo> limited = new ArrayList<>();
+        int li = 0, ui = 0;
+        while (limited.size() < 6) {
+            if (li < luckyList.size()) limited.add(luckyList.get(li++));
+            if (limited.size() < 6 && ui < unluckyList.size())
+                limited.add(unluckyList.get(ui++));
+        }
+
+        return limited;
     }
 
     // ── 개별 신살 판단 ──────────────────────────────────────────
