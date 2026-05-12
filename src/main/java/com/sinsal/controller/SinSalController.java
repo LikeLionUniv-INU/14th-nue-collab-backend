@@ -2,6 +2,8 @@ package com.sinsal.controller;
 
 import com.sinsal.dto.ErrorResponse;
 import com.sinsal.dto.SinSalResponse;
+import com.sinsal.exception.BusinessException;
+import com.sinsal.exception.ErrorCode;
 import com.sinsal.model.SinSalInfo;
 import com.sinsal.model.ThreePillars;
 import com.sinsal.service.SajuCalculatorService;
@@ -49,13 +51,11 @@ public class SinSalController {
         try {
             parsedDate = LocalDate.parse(birthDate);
         } catch (DateTimeParseException e) {
-            return ResponseEntity.badRequest()
-                    .body(new ErrorResponse(400, "Bad Request", "생년월일 형식이 올바르지 않습니다. (예: 2002-04-12)"));
+            throw new BusinessException(ErrorCode.BIRTH_DATE_INVALID_FORMAT);
         }
 
         if (!parsedDate.isBefore(LocalDate.now())) {
-            return ResponseEntity.badRequest()
-                    .body(new ErrorResponse(400, "Bad Request", "생년월일은 과거 날짜여야 합니다."));
+            throw new BusinessException(ErrorCode.BIRTH_DATE_NOT_PAST);
         }
 
         ThreePillars pillars = sajuCalculator.calculate(parsedDate);
