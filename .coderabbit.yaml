@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "ko-KR"
+early_access: false
+
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  review_status: true
+  review_details: false
+  collapse_walkthrough: true
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - "develop"
+  path_filters:
+    - "src/**"
+    - "build.gradle"
+    - "settings.gradle"
+    - "gradle/**"
+    - "gradlew"
+    - "gradlew.bat"
+    - ".github/**"
+    - "!build/**"
+    - "!.gradle/**"
+    - "!.idea/**"
+  path_instructions:
+    - path: "src/main/java/**/*.java"
+      instructions: "Spring Boot 3.2, Java 17 기준으로 API 안정성, 예외 처리, 검증 로직, 서비스 계층 책임 분리를 중점적으로 리뷰하세요."
+    - path: "src/test/java/**/*.java"
+      instructions: "변경된 비즈니스 규칙과 예외 케이스가 테스트로 검증되는지 중점적으로 확인하세요."
+
+chat:
+  auto_reply: true
