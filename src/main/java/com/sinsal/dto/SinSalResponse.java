@@ -9,19 +9,16 @@ import java.util.List;
 public class SinSalResponse {
 
     private LocalDate birthDate;
-    private String pillars;   // 예: "갑자년 병인월 무술일"
     private int totalCount;
     private List<SinSalItem> sinSals;
 
-    public SinSalResponse(LocalDate birthDate, String pillars, List<SinSalItem> sinSals) {
+    public SinSalResponse(LocalDate birthDate, List<SinSalItem> sinSals) {
         this.birthDate  = birthDate;
-        this.pillars    = pillars;
         this.totalCount = sinSals.size();
         this.sinSals    = sinSals;
     }
 
     public LocalDate getBirthDate() { return birthDate; }
-    public String getPillars()      { return pillars; }
     public int getTotalCount()      { return totalCount; }
     public List<SinSalItem> getSinSals() { return sinSals; }
 
