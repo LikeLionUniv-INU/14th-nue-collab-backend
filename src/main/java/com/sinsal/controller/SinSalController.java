@@ -69,14 +69,10 @@ public class SinSalController {
         ThreePillars pillars = sajuCalculator.calculate(parsedDate);
         List<SinSalInfo> sinSalInfos = sinSalDetector.detect(pillars);
 
-        String pillarsStr = pillars.getYearPillar()  + "년 " +
-                pillars.getMonthPillar() + "월 " +
-                pillars.getDayPillar()   + "일";
-
         List<SinSalResponse.SinSalItem> items = sinSalInfos.stream()
                 .map(SinSalResponse.SinSalItem::from)
                 .toList();
 
-        return ResponseEntity.ok(new SinSalResponse(parsedDate, pillarsStr, items));
+        return ResponseEntity.ok(new SinSalResponse(parsedDate, items));
     }
 }
