@@ -5,7 +5,6 @@
 
 ## 🌐 Deployment
 
-👉 **API URL:** [https://api.9su.site](https://api.9su.site)
 👉 **서비스 URL:** [https://www.9su.site](https://www.9su.site)
 👉 **프론트엔드 레포:** [14th-nue-collab-frontend](https://github.com/LikeLionUniv-INU/14th-nue-collab-frontend)
 
