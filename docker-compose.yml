@@ -45,6 +45,13 @@ services:
       - "3000:3000"
     volumes:
       - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=smtp.gmail.com:587
+      - GF_SMTP_USER=seungheelee1122@gmail.com
+      - GF_SMTP_PASSWORD=${GRAFANA_SMTP_PASSWORD}
+      - GF_SMTP_FROM_ADDRESS=seungheelee1122@gmail.com
+      - GF_SMTP_FROM_NAME=Grafana Alert
     depends_on:
       - prometheus
     networks:

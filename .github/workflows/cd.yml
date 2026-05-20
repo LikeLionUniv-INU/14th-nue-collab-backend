@@ -46,13 +46,17 @@ jobs:
 
       - name: EC2 배포
         uses: appleboy/ssh-action@master
+        env:
+          GRAFANA_SMTP_PASSWORD: ${{ secrets.GRAFANA_SMTP_PASSWORD }}
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
+          envs: GRAFANA_SMTP_PASSWORD
           script: |
             cd 14th-nue-collab-backend
             git pull origin develop
+            echo "GRAFANA_SMTP_PASSWORD=$GRAFANA_SMTP_PASSWORD" > .env
             aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 242777378795.dkr.ecr.ap-northeast-2.amazonaws.com
             docker compose pull
             docker compose up -d
