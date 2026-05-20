@@ -5,7 +5,6 @@
 
 ## 🌐 Deployment
 
-👉 **API URL:** [https://api.9su.site](https://api.9su.site)
 👉 **서비스 URL:** [https://www.9su.site](https://www.9su.site)
 👉 **프론트엔드 레포:** [14th-nue-collab-frontend](https://github.com/LikeLionUniv-INU/14th-nue-collab-frontend)
 
@@ -233,7 +232,7 @@ docker compose up -d
 | :-------------------------------------------------------: | :----------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
 | <img src="https://github.com/lee-mark01.png" width="80"> |    **이승희**     | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/lee-mark01) |
 | <img src="https://github.com/seojin-l.png" width="80"> |    **이서진**     | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/seojin-l) |
-| <img src="https://github.com/jiin-jung.png" width="80"> |    **정지인**     | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jiin-jung) |
+| <img src="https://github.com/jiin-jung.png" width="80"> |    **정지인(멘토)**     | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jiin-jung) |
 
 ---
 
