@@ -3,10 +3,10 @@ import { check, sleep } from 'k6';
 
 export const options = {
     stages: [
-        { duration: '1m', target: 5 },    // 워밍업: 1분간 5명까지
-        { duration: '3m', target: 20 },   // 목표: 3분간 20명 유지
-        { duration: '1m', target: 50 },   // 피크: 1분간 50명까지
-        { duration: '30s', target: 0 },   // 정리: 30초간 0명으로
+        { duration: '10s', target: 200 },   // 10초만에 200명 폭주
+        { duration: '1m', target: 200 },     // 200명 1분 유지
+        { duration: '10s', target: 0 },      // 10초만에 0명
+        { duration: '1m', target: 0 },       // 1분간 서버 회복 관찰
     ],
 };
 
@@ -22,7 +22,8 @@ const birthDates = [
 ];
 
 export default function () {
-    const date = birthDates[Math.floor(Math.random() * birthDates.length)];
+    const date = birthDates[Math.floor(Math.random() *
+        birthDates.length)];
     const res =
         http.get(`https://api.9su.site/api/sinsals?birthDate=${date}`);
 
